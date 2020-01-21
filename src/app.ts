@@ -6,8 +6,8 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { createConnection } from 'typeorm';
-
 import config from './config/config';
+import configprod from './config/config-prod';
 import { AuthHandler } from './middlewares/authHandler';
 import genericErrorHandler from './middlewares/genericErrorHandler';
 import nodeErrorHandler from './middlewares/nodeErrorHandler';
@@ -21,6 +21,9 @@ export class Application {
   logger: ILogger;
 
   constructor() {
+    if (process.env.NODE_ENV == "prod"){
+      this.config = configprod;
+    }
     this.logger = new Logger(__filename);
     this.app = express();
     this.app.locals.name = this.config.name;
@@ -44,7 +47,7 @@ export class Application {
 
   setupDbAndServer = async () => {
     const conn = await createConnection();
-    this.logger.info(`Connected to database. Connection: ${conn.name} / ${conn.options.database}`);
+    this.logger.info(`Connected to database. Connection: ${conn.name} / ${conn.options.database} / ${this.config.db.database}`);
     await this.startServer();
   }
 
