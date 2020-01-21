@@ -1,6 +1,8 @@
 #T_WEB_700
 ## NodeJS Typescript Express BackEnd API
 
+[![Build Status](https://travis-ci.org/imThaku/T-WEB-700-API.svg?branch=master)](https://travis-ci.org/imThaku/T-WEB-700-API)
+
 ### Dev Team:
 - Hugo LEFEBVRE
 - Matthieu BOUAMAMA
