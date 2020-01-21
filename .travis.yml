@@ -1,0 +1,37 @@
+language: node_js
+
+node_js:
+  - "stable"
+
+services:
+  - docker
+  - mysql
+
+cache:
+  directories:
+    - "node_modules"
+
+env:
+  global:
+    - TEST_DB_HOST=localhost
+    - TEST_DB_PORT=5432
+    - TEST_DB_USERNAME=postgres
+    - TEST_DB_PASSWORD=
+    - TEST_DB_NAME=travis_ci_test
+
+install:
+  - npm install
+
+jobs:
+  include:
+    - stage: build docker image
+      if: branch = master
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t t-web-700-api .
+        - docker images
+        - docker tag t-web-700-api $DOCKER_USERNAME/t-web-700-api
+        - docker push $DOCKER_USERNAME/t-web-700-api
+
+notifications:
+  email: false
