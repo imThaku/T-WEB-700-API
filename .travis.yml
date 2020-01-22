@@ -18,20 +18,20 @@ env:
     - TEST_DB_USERNAME=postgres
     - TEST_DB_PASSWORD=
     - TEST_DB_NAME=travis_ci_test
+    - zipFile = "t_web_700-$TRAVIS_BUILD_NUMBER"
+    - publishRegistry = "http://185.216.25.54:32778/service/rest/repository/browse/api-node/t_web_700/$TRAVIS_BUILD_NUMBER/"
+    - publishCommand = "curl -u $username:$password --upload-file $zipFile -v $publishRegistry$zipFile.zip"
 
 install:
   - npm install
 
 jobs:
   include:
-    - stage: build docker image
+    - stage: build project zip
       if: branch = master
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker build -t t-web-700-api .
-        - docker images
-        - docker tag t-web-700-api $DOCKER_USERNAME/t-web-700-api
-        - docker push $DOCKER_USERNAME/t-web-700-api
+        - zip -r $zipFile dist/* >> /dev/null
+        - $publishCommand
 
 notifications:
   email: false

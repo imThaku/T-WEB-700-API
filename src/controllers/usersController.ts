@@ -12,8 +12,8 @@ const usersRouter: Router = Router();
 
 // on routes that end in /users
 // -----------------------------
-usersRouter.route('/')
 
+usersRouter.route('/')
     .get(async (req: Request, res: Response, next: NextFunction) => {
 
         const userService = new UserService();
@@ -161,7 +161,7 @@ usersRouter.route('/:id/crypto/:cryptoId')
                     });
                 }
                 // now update the user attributes according to req body
-                if (!user.cryptos){
+                if (!user.cryptos) {
                     user.cryptos = [];
                 }
                 user.cryptos.push(crypto);

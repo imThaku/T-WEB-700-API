@@ -1,6 +1,7 @@
 import {getManager, Repository} from 'typeorm';
 import {User} from '../entities/User';
 import {Logger, ILogger} from '../utils/logger';
+import {ApiOperationGet, SwaggerDefinitionConstant} from "swagger-express-ts";
 
 export class UserService {
 
@@ -22,6 +23,17 @@ export class UserService {
     /**
      * Inserts a new User into the database.
      */
+
+    @ApiOperationGet({
+        description: "Get versions objects list",
+        summary: "Get versions list",
+        responses: {
+            200: { description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Version" }
+        },
+        security: {
+            apiKeyHeader: []
+        }
+    })
     async insert(data: User): Promise<User> {
         this.logger.info('Create a new user', data);
         const newUser = this.userRepository.create(data);
