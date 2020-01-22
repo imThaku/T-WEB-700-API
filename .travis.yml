@@ -30,7 +30,6 @@ jobs:
     - stage: build project zip
       if: branch = master
       script:
-        - npm run build
         - npm version minor
         - npm publish
 

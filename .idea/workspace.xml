@@ -4,7 +4,6 @@
     <list default="true" id="55d8a2a7-2b3d-4bf0-bdc7-39e8373c42db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
       <workItem from="1578908515262" duration="573000" />
       <workItem from="1578924625008" duration="19000" />
       <workItem from="1579515142496" duration="8498000" />
-      <workItem from="1579598352661" duration="13252000" />
+      <workItem from="1579598352661" duration="13522000" />
     </task>
     <servers />
   </component>
@@ -113,6 +112,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1579515675471" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1579687949468">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1579687949468" />
     <state x="570" y="424" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1579685664264">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
