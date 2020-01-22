@@ -11,6 +11,11 @@ cache:
   directories:
     - "node_modules"
 
+addons:
+  apt:
+    packages:
+      - sshpass
+
 env:
   global:
     - TEST_DB_HOST=localhost
@@ -18,9 +23,6 @@ env:
     - TEST_DB_USERNAME=postgres
     - TEST_DB_PASSWORD=
     - TEST_DB_NAME=travis_ci_test
-    - zipFile = "t_web_700-$TRAVIS_BUILD_NUMBER"
-    - publishRegistry = "http://185.216.25.54:32778/service/rest/repository/browse/api-node/t_web_700/$TRAVIS_BUILD_NUMBER/"
-    - publishCommand = "curl -u $username:$password --upload-file $zipFile -v $publishRegistry$zipFile.zip"
 
 install:
   - npm install
@@ -32,6 +34,15 @@ jobs:
       script:
         - npm version minor
         - npm publish
+
+    - stage: Deploy on server
+      if: branch = master
+      script:
+        - export SSHPASS=$DEPLOY_PASS
+        - sshpass -e scp deploy.sh $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+        - sshpass -e scp package.json $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+        - sshpass -e ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PAT deploy.sh
+
 
 notifications:
   email: false
