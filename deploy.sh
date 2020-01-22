@@ -6,20 +6,24 @@ PACKAGE_VERSION=$(cat package.json \
 
 echo $PACKAGE_VERSION
 
-if [ -d "epitech/t-web-700/api" ]; then
-  rm -R "epitech/t-web-700/api"
+if [ -d "/home/epitech/t-web-700/api" ]; then
+  rm -R "/home/epitech/t-web-700/api"
   echo "Le workspace epitech/t-web-700/api existe pas"
 else
   echo "Le workspace epitech/t-web-700/api existe pas"
 fi
 
-if [ -d "epitech/t-web-700/api" ]; then
+if [ -d "/home/epitech/t-web-700/api" ]; then
     echo "Le workspace epitech/t-web-700/api existe deja."
 else
-    mkdir -p "epitech/t-web-700/api"
+    mkdir -p "/home/epitech/t-web-700/api"
+    echo "sa passe ici"
 fi
 
-wget -P "epitech/download" "http://185.216.25.54:32778/repository/node-app/t-dev-700-api/t-dev-700-api-$PACKAGE_VERSION.tgz"
+wget --user=admin --password=422960d4 -P "/home/epitech/download" "http://185.216.25.54:32778/repository/node-app/t-dev-700-api/-/t-dev-700-api-1.0.1.tgz"
 
-tar -zxvf epitech/download/t-dev-700-api-$PACKAGE_VERSION.tgz -C epitech/t-web-700/api/
+tar -zxvf /home/epitech/download/t-dev-700-api-1.0.1.tgz -C /home/epitech/t-web-700/api/
+
+cd /home/epitech/t-web-700/api/package
+npm install
 
