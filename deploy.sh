@@ -8,6 +8,9 @@ echo $PACKAGE_VERSION
 
 if [ -d "epitech/t-web-700/api" ]; then
   rm -R "epitech/t-web-700/api"
+  echo "Le workspace epitech/t-web-700/api existe pas"
+else
+  echo "Le workspace epitech/t-web-700/api existe pas"
 fi
 
 if [ -d "epitech/t-web-700/api" ]; then
