@@ -51,8 +51,8 @@ jobs:
         - chmod 600 ./deploy_key
         - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
         - ssh-add ./deploy_key
-        - ssh -i ./deploy_key root@185.216.25.54:/home/epitech pwd
-        - ssh -i ./deploy_key -o StrictHostKeyChecking=no root@185.216.25.54:/home/epitech "sh deploy.sh"
+        - ssh -i ./deploy_key -x "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" root@185.216.25.54 pwd
+        - ssh -i ./deploy_key -x "-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" root@185.216.25.54 "cd /home/epitech && sh deploy.sh"
 
 notifications:
   email: false
