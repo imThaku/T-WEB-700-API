@@ -45,8 +45,15 @@ jobs:
         - export SSHPASS=$DEPLOY_PASS
         - scp -i ./deploy_key -r -p deploy.sh root@185.216.25.54:/home/epitech
         - scp -i ./deploy_key -r -p package.json root@185.216.25.54:/home/epitech
+        - openssl aes-256-cbc -K $encrypted_481a3861b4e0_key -iv $encrypted_481a3861b4e0_iv
+          -in deploy_key.enc -out ./deploy_key -d
+        - eval "$(ssh-agent -s)"
+        - chmod 600 ./deploy_key
+        - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+        - ssh-add ./deploy_key
         - ssh -i ./deploy_key root@185.216.25.54:/home/epitech pwd
         - ssh -i ./deploy_key -o StrictHostKeyChecking=no root@185.216.25.54:/home/epitech "sh deploy.sh"
+
 notifications:
   email: false
 
