@@ -32,16 +32,16 @@ jobs:
     - stage: build project zip
       if: branch = master
       script:
-        - npm version minor
         - npm publish
 
     - stage: Deploy on server
       if: branch = master
       script:
         - export SSHPASS=$DEPLOY_PASS
-        - sshpass -e scp deploy.sh $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-        - sshpass -e scp package.json $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-        - sshpass -e ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PAT deploy.sh
+        - echo $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
+        - scp -r -p deploy.sh $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
+        - scp -r -p package.json $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
+        - ssh -o StrictHostKeyChecking=no $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PAT \"./deploy.sh\""
 
 
 notifications:
