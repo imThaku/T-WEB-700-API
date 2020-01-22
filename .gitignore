@@ -12,3 +12,4 @@ jspm_packages/
 # Build directory
 dist
 deploy_key
+.idea
