@@ -1,21 +1,16 @@
 language: node_js
-
 node_js:
-  - "stable"
-
+  - stable
 services:
   - docker
   - mysql
-
 cache:
   directories:
-    - "node_modules"
-
+    - node_modules
 addons:
   apt:
     packages:
       - sshpass
-
 env:
   global:
     - TEST_DB_HOST=localhost
@@ -23,17 +18,25 @@ env:
     - TEST_DB_USERNAME=postgres
     - TEST_DB_PASSWORD=
     - TEST_DB_NAME=travis_ci_test
+    - SERVER_IP_ADDRESS=185.216.25.54
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_481a3861b4e0_key -iv $encrypted_481a3861b4e0_iv
+    -in deploy_key.enc -out ./deploy_key -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 ./deploy_key
+  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - ssh-add ./deploy_key
+  - ssh -i ./deploy_key root@185.216.25.54 pwd
 
 install:
   - npm install
-
 jobs:
   include:
     - stage: build project zip
       if: branch = master
       script:
         - npm publish
-
     - stage: Deploy on server
       if: branch = master
       script:
@@ -41,8 +44,8 @@ jobs:
         - echo $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
         - scp -r -p deploy.sh $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
         - scp -r -p package.json $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
-        - ssh -o StrictHostKeyChecking=no $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PAT \"./deploy.sh\""
-
-
+        - ssh -o StrictHostKeyChecking=no $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PAT
+          \"./deploy.sh\""
 notifications:
   email: false
+
