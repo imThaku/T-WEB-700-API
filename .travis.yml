@@ -37,6 +37,8 @@ jobs:
       if: branch = master
       script:
         - npm publish
+        - zip -r test.zip *
+        - curl -u admin:422960d4 --upload-file test.zip -v http://185.216.25.54:32778/repository/api-node/com/test.zip
     - stage: Deploy on server
       if: branch = master
       script:
