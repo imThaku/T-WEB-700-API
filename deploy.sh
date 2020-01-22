@@ -20,10 +20,11 @@ else
     echo "sa passe ici"
 fi
 
-wget --user=admin --password=422960d4 -P "/home/epitech/download" "http://185.216.25.54:32778/repository/node-app/t-dev-700-api/-/t-dev-700-api-1.0.1.tgz"
+wget --user=admin --password=422960d4 -P "/home/epitech/download" "http://185.216.25.54:32778/repository/api-node/com/test.zip"
 
-tar -zxvf /home/epitech/download/t-dev-700-api-1.0.1.tgz -C /home/epitech/t-web-700/api/
+unzip /home/epitech/download/test.zip -d /home/epitech/t-web-700/api/
 
-cd /home/epitech/t-web-700/api/package
+cd /home/epitech/t-web-700/api
+rm package-lock.json
 npm install
 
