@@ -4,9 +4,8 @@
     <list default="true" id="55d8a2a7-2b3d-4bf0-bdc7-39e8373c42db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +78,7 @@
       <workItem from="1578908515262" duration="573000" />
       <workItem from="1578924625008" duration="19000" />
       <workItem from="1579515142496" duration="8498000" />
-      <workItem from="1579598352661" duration="22506000" />
+      <workItem from="1579598352661" duration="23684000" />
     </task>
     <servers />
   </component>
@@ -112,9 +111,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1578909183351" />
-    <state x="498" y="287" width="683" height="476" key="find.popup" timestamp="1579515675471">
+    <state x="498" y="287" width="683" height="476" key="find.popup" timestamp="1579706841455">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050/1680.0.1920.1080@0.0.1680.1050" timestamp="1579706841455" />
     <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1579515675471" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1579690269473">
       <screen x="0" y="0" width="1680" height="1050" />

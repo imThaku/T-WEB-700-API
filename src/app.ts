@@ -73,7 +73,7 @@ export class Application {
     startServer(): Promise<boolean> {
         return new Promise((resolve, reject) => {
             this.app.listen(+this.config.port, this.config.host, () => {
-                this.logger.info(`Server started at http://${this.config.host}:${this.config.port}`);
+                this.logger.info(`Server started at http://${( process.env.NODE_ENV === 'prod' ? process.env.PROD_APP_HOST : process.env.APP_HOST)}:${this.config.port}`);
                 resolve(true);
             }).on('error', nodeErrorHandler);
         });

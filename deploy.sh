@@ -20,6 +20,20 @@ else
     echo "sa passe ici"
 fi
 
+if [ -d "/home/epitech/download" ]; then
+  rm -R "/home/epitech/download"
+  echo "Le workspace epitech/download existe"
+else
+  echo "Le workspace epitech/download existe pas"
+fi
+
+if [ -d "/home/epitech/download" ]; then
+    echo "Le workspace epitech/download existe deja."
+else
+    mkdir -p "/home/epitech/download"
+    echo "sa passe ici"
+fi
+
 wget --user=admin --password=422960d4 -P "/home/epitech/download" "http://185.216.25.54:32778/repository/api-node/com/test.zip"
 
 unzip /home/epitech/download/test.zip -d /home/epitech/t-web-700/api/

@@ -12,7 +12,7 @@ export default {
   messages,
   name: 'V2X Core',
   version: '1.0',
-  host: process.env.NODE_ENV === "prod" ? process.env.PROD_APP_HOST : process.env.APP_HOST || '127.0.0.1',
+  host: ( process.env.NODE_ENV === 'prod' ? process.env.PROD_APP_HOST : process.env.APP_HOST),
   environment: process.env.NODE_ENV || 'development',
   port: (isTestEnvironment ? process.env.TEST_APP_PORT : process.env.APP_PORT) || '8000',
   pagination: {
