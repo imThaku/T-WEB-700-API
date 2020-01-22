@@ -30,8 +30,9 @@ jobs:
     - stage: build project zip
       if: branch = master
       script:
-        - zip -r $zipFile dist/* >> /dev/null
-        - $publishCommand
+        - npm run build
+        - npm version minor
+        - npm publish
 
 notifications:
   email: false

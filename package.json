@@ -1,13 +1,16 @@
 {
-  "name": "typescript-express-typeorm-boilerplate",
+  "name": "t-dev-700-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "http://185.216.25.54:32778/repository/node-app/"
+  },
   "scripts": {
     "start": "ts-node src/index.ts",
     "prod": "NODE_ENV=prod ts-node src/index.ts",
     "clean": "rimraf dist",
-    "build": "tsc -v && npm run clean && npm run tslint && npm run build-ts",
+    "build": "tsc -v && npm run clean && npm run build-ts",
     "build-ts": "tsc",
     "watch": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
