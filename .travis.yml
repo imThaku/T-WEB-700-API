@@ -45,7 +45,8 @@ jobs:
         - export SSHPASS=$DEPLOY_PASS
         - scp -i ./deploy_key -r -p deploy.sh root@185.216.25.54:/home/epitech
         - scp -i ./deploy_key -r -p package.json root@185.216.25.54:/home/epitech
-        - ssh -i ./deploy_key -o StrictHostKeyChecking=no root@185.216.25.54:/home/epitech "./deploy.sh"
+        - ssh -i ./deploy_key root@185.216.25.54:/home/epitech pwd
+        - ssh -i ./deploy_key -o StrictHostKeyChecking=no root@185.216.25.54:/home/epitech "sh deploy.sh"
 notifications:
   email: false
 
