@@ -19,7 +19,7 @@ else
     mkdir -p "epitech/t-web-700/api"
 fi
 
-wget -P "epitech/download" "http://185.216.25.54:32778/repository/node-app/	t-dev-700-api/t-dev-700-api-$PACKAGE_VERSION.tgz"
+wget -P "epitech/download" "http://185.216.25.54:32778/repository/node-app/t-dev-700-api/t-dev-700-api-$PACKAGE_VERSION.tgz"
 
 tar -zxvf epitech/download/t-dev-700-api-$PACKAGE_VERSION.tgz -C epitech/t-web-700/api/
 
