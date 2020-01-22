@@ -41,11 +41,9 @@ jobs:
       if: branch = master
       script:
         - export SSHPASS=$DEPLOY_PASS
-        - echo $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
-        - scp -r -p deploy.sh $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
-        - scp -r -p package.json $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PATH
-        - ssh -o StrictHostKeyChecking=no $DEPLOY_USER:$DEPLOY_PASS@$DEPLOY_HOST:$DEPLOY_PAT
-          \"./deploy.sh\""
+        - scp -i ./deploy_key -r -p deploy.sh root@$185.216.25.54:/home/epitech
+        - scp -i ./deploy_key -r -p package.json root@$185.216.25.54:/home/epitech
+        - ssh -i ./deploy_key -o StrictHostKeyChecking=no root@$185.216.25.54:/home/epitech \"./deploy.sh\""
 notifications:
   email: false
 
