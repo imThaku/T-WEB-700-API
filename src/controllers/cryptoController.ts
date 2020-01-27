@@ -82,7 +82,7 @@ cryptoRouter.route('/:symbol')
         const cryptoID = req.params.symbol;
         const cryptoService = new CryptoService();
         try {
-            const crypto = await cryptoService.getById(cryptoID);
+            const crypto = await cryptoService.getByIds(cryptoID);
 
             // if user not found
             if (!crypto) {
