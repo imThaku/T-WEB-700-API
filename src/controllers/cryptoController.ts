@@ -37,7 +37,7 @@ cryptoRouter.route('/sparkline/:symbol')
         const cryptoID = req.params.symbol;
         const date_ob = new Date();
         const old_date = new Date();
-        old_date.setDate(old_date.getDate() - 1);
+        old_date.setDate(old_date.getDate() - 7);
         const cryptoService = new CryptoService();
         const baseUrl = 'https://api.nomics.com/v1/currencies/sparkline';
         console.log(cryptoService.ISODateString(date_ob));
