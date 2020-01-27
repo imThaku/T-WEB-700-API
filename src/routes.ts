@@ -14,7 +14,8 @@ router.get('/', welcomeController.index);
 router.use('/utils', utilsRouter);
 router.use('/signup', signupRouter);
 router.use('/login', loginRouter);
-router.use('/users', auth.authenticate(), usersRouter);
+// router.use('/users', auth.authenticate(), usersRouter);
+router.use('/users', usersRouter);
 router.use('/crypto', cryptoRouter);
 
 export default router;
