@@ -95,7 +95,7 @@ cryptoRouter.route('/:symbol')
             // return found user
             res.status(HttpStatus.OK).json({
                 success: true,
-                user: crypto
+                data: crypto
             });
 
         } catch (err) {
