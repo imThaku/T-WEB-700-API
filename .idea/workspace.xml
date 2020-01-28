@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="55d8a2a7-2b3d-4bf0-bdc7-39e8373c42db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/cryptoController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/cryptoController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/crypto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/crypto.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,9 @@
       <workItem from="1579773803142" duration="25000" />
       <workItem from="1579773840697" duration="75000" />
       <workItem from="1579788147481" duration="3342000" />
-      <workItem from="1580123109491" duration="3887000" />
+      <workItem from="1580123109491" duration="4621000" />
+      <workItem from="1580201492324" duration="1614000" />
+      <workItem from="1580215962953" duration="183000" />
     </task>
     <servers />
   </component>
@@ -118,10 +121,11 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1579773827937" />
-    <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1579773912482">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="517" y="353" key="com.intellij.ide.util.TipDialog" timestamp="1580201492340">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1579773912482" />
+    <state x="517" y="353" key="com.intellij.ide.util.TipDialog/0.23.1680.972@0.23.1680.972" timestamp="1580201492340" />
     <state x="498" y="287" width="683" height="476" key="find.popup" timestamp="1579706841455">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

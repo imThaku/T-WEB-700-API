@@ -90,6 +90,17 @@ export class CryptoService {
         }
     }
 
+    /**
+     * Updates a Crypto
+     */
+    async remove(crypto: Crypto): Promise<Crypto | undefined> {
+        try {
+            return await this.cryptoRepository.remove(crypto);
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     pad(n: any) {
         return n < 10 ? '0' + n : n
     }
