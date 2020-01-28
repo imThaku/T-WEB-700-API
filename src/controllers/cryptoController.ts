@@ -6,6 +6,7 @@ import {ApiResponseError} from "../resources/interfaces/ApiResponseError";
 import {Crypto} from "../entities/Crypto";
 import {UserService} from "../services/users.service";
 import errors from "../assets/i18n/en/errors";
+import messages from "../assets/i18n/en/messages";
 
 
 const cryptoRouter: Router = Router();
@@ -40,8 +41,6 @@ cryptoRouter.route('/sparkline/:symbol')
         old_date.setDate(old_date.getDate() - 7);
         const cryptoService = new CryptoService();
         const baseUrl = 'https://api.nomics.com/v1/currencies/sparkline';
-        console.log(cryptoService.ISODateString(date_ob));
-        console.log(cryptoService.ISODateString(old_date));
         var options = {
             uri: baseUrl,
             qs: {
@@ -84,7 +83,6 @@ cryptoRouter.route('/:symbol')
         try {
             const crypto = await cryptoService.getByIds(cryptoID);
 
-            // if user not found
             if (!crypto) {
                 res.status(HttpStatus.NOT_FOUND).json({
                     success: false,
@@ -92,7 +90,6 @@ cryptoRouter.route('/:symbol')
                 });
                 return;
             }
-            // return found user
             res.status(HttpStatus.OK).json({
                 success: true,
                 data: crypto
@@ -134,7 +131,6 @@ cryptoRouter.route('/:symbol')
             crypto.currentPrice = data.price;
             crypto.highPrice = data.high;
         }
-        console.log(crypto);
         const cryptoService = new CryptoService();
         cryptoService.instantiate(crypto);
         try {
@@ -152,8 +148,37 @@ cryptoRouter.route('/:symbol')
             next(error);
         }
     })
+
+    .delete(async (req: Request, res: Response, next: NextFunction) => {
+
+        const cryptoID = req.params.symbol;
+
+        const cryptoService = new CryptoService();
+
+        try {
+            const crypto = await cryptoService.getByIds(cryptoID);
+            if(!crypto){
+                res.status(HttpStatus.NOT_FOUND).json({
+                    success: true,
+                    message: "Crypto not found"
+                });
+            }
+            const response = await cryptoService.delete(crypto);
+            // return 200 even if no user found. Empty array. Not an error
+            res.status(HttpStatus.OK).json({
+                success: true,
+                data: response
+            });
+        } catch (err) {
+            const error: ApiResponseError = {
+                code: HttpStatus.BAD_REQUEST,
+                errorObj: err
+            };
+            next(error);
+        }
+    })
+
     .put(async (req: Request, res: Response, next: NextFunction) => {
-        console.log("PUT");
         const cryptoService = new CryptoService();
         const cryptoID = req.params.symbol;
         const baseUrl = 'https://api.nomics.com/v1/currencies/ticker';

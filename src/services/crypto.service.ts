@@ -28,6 +28,14 @@ export class CryptoService {
         return await this.cryptoRepository.save(newCrypto);
     }
 
+    async delete(crypto: Crypto): Promise<Crypto | undefined> {
+        try {
+            return await this.cryptoRepository.remove(crypto);
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
     /**
      * Returns array of all crypto from db
      */
