@@ -1,6 +1,6 @@
 module.exports =
     {
-        "type": "mysql",
+        "type": process.env.NODE_ENV === "test" ? "sqlite" : "mysql",
         "host": process.env.NODE_ENV === "test" ? process.env.TEST_DB_HOST : process.env.NODE_ENV === "prod" ? process.env.PROD_DB_HOST : process.env.DB_HOS,
         "port": process.env.NODE_ENV === "test" ? process.env.TEST_DB_PORT : process.env.NODE_ENV === "prod" ? process.env.PROD_DB_PORT : process.env.DB_PORT,
         "username": process.env.NODE_ENV === "test" ? process.env.TEST_DB_USERNAME : process.env.NODE_ENV === "prod" ? process.env.PROD_DB_USERNAME : process.env.DB_USERNAME,
