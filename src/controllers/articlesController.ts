@@ -7,12 +7,32 @@ import {Crypto} from "../entities/Crypto";
 import {UserService} from "../services/users.service";
 import errors from "../assets/i18n/en/errors";
 import messages from "../assets/i18n/en/messages";
+import {ArticleService} from "../services/article.service";
+import {Article} from "../entities/Article";
 
 
 const articleRouter: Router = Router();
 
 articleRouter.route('/')
+    .get(async (req: Request, res: Response, next: NextFunction) => {
+        const articleService = new ArticleService();
+        try {
+            const response = await articleService.getAll();
+            // return 200 even if no article found. Empty array. Not an error
+            res.status(HttpStatus.OK).json({
+                success: true,
+                data: response
+            });
+        } catch (err) {
+            const error: ApiResponseError = {
+                code: HttpStatus.BAD_REQUEST,
+                errorObj: err
+            };
+            next(error);
+        }
+    });
 
+articleRouter.route('/registered/')
     .get(async (req: Request, res: Response, next: NextFunction) => {
 
         const params = req.query;
@@ -43,9 +63,29 @@ articleRouter.route('/')
             };
             next(error);
         }
+    })
+    .post(async (req: Request, res: Response, next: NextFunction) => {
+
+        const article:Article = req.body.article;
+        const articleService = new ArticleService();
+        articleService.instantiate(article);
+        try {
+            const response = await articleService.insert(article);
+            // return 200 even if no article found. Empty array. Not an error
+            res.status(HttpStatus.OK).json({
+                success: true,
+                data: response
+            });
+        } catch (err) {
+            const error: ApiResponseError = {
+                code: HttpStatus.BAD_REQUEST,
+                errorObj: err
+            };
+            next(error);
+        }
     });
 
-articleRouter.route('/:id')
+articleRouter.route('/registered/:id')
 
     .get(async (req: Request, res: Response, next: NextFunction) => {
 
@@ -80,6 +120,36 @@ articleRouter.route('/:id')
             };
             next(error);
         }
+    })
+    .delete(async (req: Request, res: Response, next: NextFunction) => {
+
+        const articleID = req.params.id;
+
+        const articleService = new ArticleService();
+
+        try {
+            const article = await articleService.getById(articleID);
+            if(!article){
+                res.status(HttpStatus.NOT_FOUND).json({
+                    success: true,
+                    message: "Article not found"
+                });
+            }
+            const response = await articleService.delete(article);
+            // return 200 even if no article found. Empty array. Not an error
+            res.status(HttpStatus.OK).json({
+                success: true,
+                data: response
+            });
+        } catch (err) {
+            const error: ApiResponseError = {
+                code: HttpStatus.BAD_REQUEST,
+                errorObj: err
+            };
+            next(error);
+        }
     });
+
+
 
 export default articleRouter;

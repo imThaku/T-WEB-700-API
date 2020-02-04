@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="55d8a2a7-2b3d-4bf0-bdc7-39e8373c42db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/crypto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/crypto.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/articlesController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/articlesController.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="BSvxsIjt" />
+  </component>
   <component name="ProjectId" id="1WKqDRqlDQCo90ODPuLZS0LHMyo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -34,23 +36,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/services" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services" />
+      <recent name="$PROJECT_DIR$/src/entities" />
+      <recent name="$PROJECT_DIR$/dist/entities" />
+      <recent name="$PROJECT_DIR$/src/config" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/migration" />
       <recent name="$PROJECT_DIR$/src/middlewares" />
       <recent name="$PROJECT_DIR$/src/assets" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/config" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/services" />
-      <recent name="$PROJECT_DIR$/src/entities" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -85,6 +88,7 @@
       <workItem from="1580123109491" duration="4621000" />
       <workItem from="1580201492324" duration="1614000" />
       <workItem from="1580215962953" duration="183000" />
+      <workItem from="1580824572269" duration="2061000" />
     </task>
     <servers />
   </component>
@@ -126,11 +130,11 @@
     </state>
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1579773912482" />
     <state x="517" y="353" key="com.intellij.ide.util.TipDialog/0.23.1680.972@0.23.1680.972" timestamp="1580201492340" />
-    <state x="498" y="287" width="683" height="476" key="find.popup" timestamp="1579706841455">
+    <state x="498" y="287" width="683" height="476" key="find.popup" timestamp="1580825014933">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050/1680.0.1920.1080@0.0.1680.1050" timestamp="1579706841455" />
-    <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1579515675471" />
+    <state x="498" y="287" width="683" height="476" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1580825014933" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1579690269473">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
