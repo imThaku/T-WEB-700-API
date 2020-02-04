@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import usersRouter from './controllers/usersController';
 import cryptoRouter from './controllers/cryptoController';
+import articleRouter from './controllers/articlesController';
 import utilsRouter from './controllers/utilsController';
 import * as welcomeController from './controllers/welcomeController';
 import signupRouter from './controllers/signupController';
@@ -17,5 +18,6 @@ router.use('/login', loginRouter);
 // router.use('/users', auth.authenticate(), usersRouter);
 router.use('/users', usersRouter);
 router.use('/crypto', cryptoRouter);
+router.use('/articles', articleRouter);
 
 export default router;
