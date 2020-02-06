@@ -2,6 +2,7 @@ import {getManager, Repository} from 'typeorm';
 import {User} from '../entities/User';
 import {Logger, ILogger} from '../utils/logger';
 import {ApiOperationGet, SwaggerDefinitionConstant} from "swagger-express-ts";
+import {forEachToken} from "tslint";
 
 export class UserService {
 
@@ -28,7 +29,7 @@ export class UserService {
         description: "Get versions objects list",
         summary: "Get versions list",
         responses: {
-            200: { description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Version" }
+            200: {description: "Success", type: SwaggerDefinitionConstant.Response.Type.ARRAY, model: "Version"}
         },
         security: {
             apiKeyHeader: []
@@ -79,6 +80,21 @@ export class UserService {
      */
     async update(user: User): Promise<User | undefined> {
         try {
+            const updatedUser = await this.userRepository.save(user);
+            return updatedUser;
+        } catch (error) {
+            return Promise.reject(error);
+        }
+    }
+
+    /**
+     * Updates a user
+     */
+    async deleteCrypto(user: User, crypto: string): Promise<User | undefined> {
+        try {
+            user.cryptos.forEach((item, index) => {
+                if (item.IDs === crypto) user.cryptos.splice(index, 1);
+            });
             const updatedUser = await this.userRepository.save(user);
             return updatedUser;
         } catch (error) {
