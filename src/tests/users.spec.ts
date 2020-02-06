@@ -240,18 +240,6 @@ describe('Users', () => {
           done();
         });
     });
-
-    it('should not be able to get a user witu incorrect user id', (done) => {
-      chai.request(app)
-        .get('/api/users/wrong-id')
-        .set('Authorization', authToken)
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.success.should.equal(false);
-          done();
-        });
-    });
-
   });
 
   describe('GET /users/profile', () => {
