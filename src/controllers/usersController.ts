@@ -179,7 +179,44 @@ usersRouter.route('/:id/crypto/:cryptoId')
                 };
                 next(error);
             }
-        });
+        })
+    .delete(async (req: Request, res: Response, next: NextFunction) => {
+
+        const cryptoID = req.params.cryptoId;
+        const userID = req.params.id;
+
+        const cryptoService = new CryptoService();
+        const userService = new UserService();
+
+        try {
+            const user = await userService.getById(userID);
+            if (!user) {
+                res.status(HttpStatus.NOT_FOUND).json({
+                    success: true,
+                    message: "User not found"
+                });
+            }
+            const crypto = await cryptoService.getByIds(cryptoID);
+            if (!crypto) {
+                res.status(HttpStatus.NOT_FOUND).json({
+                    success: true,
+                    message: "Crypto not found"
+                });
+            }
+            const response = await userService.deleteCrypto(user,crypto.IDs);
+            // return 200 even if no user found. Empty array. Not an error
+            res.status(HttpStatus.OK).json({
+                success: true,
+                data: response
+            });
+        } catch (err) {
+            const error: ApiResponseError = {
+                code: HttpStatus.BAD_REQUEST,
+                errorObj: err
+            };
+            next(error);
+        }
+    });
 
 // on routes that end in /users/:id
 // --------------------------------------
