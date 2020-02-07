@@ -79,7 +79,7 @@ usersRouter.route('/profile')
             if (validationErrors.isEmpty()) {
                 const userService = new UserService();
                 try {
-                    const user = await userService.getById(req.user.id);
+                    const user = await userService.getById(req.body.user.id);
                     // if user not found
                     if (!user) {
                         return res.status(HttpStatus.NOT_FOUND).json({
@@ -112,9 +112,10 @@ usersRouter.route('/profile')
                     }
 
                     // now update the user attributes according to req body
-                    if (req.body.firstName) user.firstName = req.body.firstName;
-                    if (req.body.lastName) user.lastName = req.body.lastName;
-                    if (req.body.email) user.email = req.body.email;
+                    if (req.body.user.firstName) user.firstName = req.body.user.firstName;
+                    if (req.body.user.lastName) user.lastName = req.body.user.lastName;
+                    if (req.body.user.email) user.email = req.body.user.email;
+                    if (req.body.user.role) user.role = req.body.user.role;
                     if (req.body.newPassword) await user.setPassword(req.body.newPassword);
 
                     const updatedUser = await userService.update(user);
