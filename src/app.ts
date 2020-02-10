@@ -33,7 +33,11 @@ export class Application {
         this.app.locals.version = this.config.version;
 
         this.app.use(require('express-status-monitor')());
-        this.app.use(cors());
+        let corsOptions = {
+            origin: '*',
+            optionsSuccessStatus: 200
+        };
+        this.app.use(cors(corsOptions));
         this.app.use(helmet());
         this.app.use(morgan('dev', {
             skip: (() => process.env.NODE_ENV === 'test')

@@ -130,6 +130,7 @@ cryptoRouter.route('/:symbol')
             crypto.URL = data.logo_url;
             crypto.currentPrice = data.price;
             crypto.highPrice = data.high;
+            crypto.change = data["1d"].volume_change_pct;
         }
         const cryptoService = new CryptoService();
         cryptoService.instantiate(crypto);

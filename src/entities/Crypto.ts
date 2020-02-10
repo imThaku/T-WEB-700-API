@@ -40,6 +40,10 @@ export class Crypto {
     type:"float"})
   highPrice: number;
 
+  @Column({default: 0,
+    type:"float"})
+  change: number;
+
   @Column()
   URL: string;
 
